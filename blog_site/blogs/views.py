@@ -1,19 +1,14 @@
 from django.http import HttpResponse
-
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index", status=200)
-
-
-# class FourDigitYearConverter:
-#     regex = "[0-9]{4}"
-#
-#     def to_python(self, value):
-#         return int(value) + 1
-#
-#     def to_url(self, value):
-#         return "%04d" % value
+from mock_data import blogs
 
 
 def blogs_view(request):
-    ...
+    html = ''
+    for blog in blogs.values():
+        html += f"""
+        <h3>{blog['title']}</h3>
+        <p>By {blog['author']} on {blog['date_published']}</p>
+        <p>{blog['content']}</p>
+        <p>Tags: {', '.join(blog['content'])}</p>
+        """
+    return HttpResponse(html, status=200)
