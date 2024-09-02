@@ -14,3 +14,6 @@ def index(request):
 #     def to_url(self, value):
 #         return "%04d" % value
 
+
+def blogs_view(request):
+    ...
