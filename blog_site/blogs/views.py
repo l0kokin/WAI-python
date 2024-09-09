@@ -6,6 +6,7 @@ from blogs.models import Blog
 
 def blogs_view(request):
     html = ''
+    blogs = Blog.objects.all().prefetch_related('tags')
     for blog in Blog.objects.all():
         blog_details_url = reverse('blog_details', args=(blog.id,))
         tags = ", ".join([tag.name for tag in blog.tags.all()])
@@ -26,7 +27,6 @@ def blog_details_view(request, blog_id):
         return HttpResponse("Blog not found", status=404)
 
     tags = ", ".join([tag.name for tag in blog.tags.all()])
-
     comments = ''
     for comment in blog.comments.all():
         comments += f'<p>{comment.author}: {comment.content} <small>{comment.date}</small></p>'
