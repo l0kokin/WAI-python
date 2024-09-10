@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 
 # Task 1
@@ -32,6 +33,12 @@ class Student(models.Model):
 
     def get_courses(self):
         return Course.objects.filter(students=self)
+
+    # Task 3
+    def calc_age(self):
+        today = date.today()
+        age = today.year - self.birth_date.year
+        return age
 
 
 class Course(models.Model):
