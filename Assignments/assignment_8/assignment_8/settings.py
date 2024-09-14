@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # my app
-    'foreign_key_assignment'
+    'foreign_key_assignment',
+    'adminsortable2',
+    'import_export',
 ]
 
 MIDDLEWARE = [
