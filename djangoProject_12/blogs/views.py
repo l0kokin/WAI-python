@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 
 from blogs.models import Blog
 
@@ -12,7 +13,7 @@ def blogs_list(request):
 
 
 def blogs_detail(request, blog_id):
-    blog = Blog.objects.get(pk=blog_id)
+    blog = get_object_or_404(Blog, pk=blog_id)
     context = {
         'blog': blog
     }
