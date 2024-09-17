@@ -9,3 +9,11 @@ def blogs_list(request):
         'blogs': all_blogs,
     }
     return render(request, 'blogs/blogs_list.html', context=context)
+
+
+def blogs_detail(request, blog_id):
+    blog = Blog.objects.get(pk=blog_id)
+    context = {
+        'blog': blog,
+    }
+    return render(request, 'blogs/blogs_list.html', context=context)
