@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class ForeignKeyAssignmentConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'foreign_key_assignment'
+    name = 'my_app'

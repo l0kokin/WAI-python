@@ -51,5 +51,5 @@ class Course(models.Model):
     description = models.TextField()
     students = models.ManyToManyField(Student)
 
-    def _str_(self):
+    def __str__(self):
         return self.name

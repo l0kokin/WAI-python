@@ -1,13 +1,11 @@
 from importlib import resources
-
-
 from django.contrib import admin
-
 from adminsortable2.admin import SortableAdminMixin
+
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from foreign_key_assignment.models import Author, Book
+from my_app.models import Author, Book
 
 
 class BookResource(resources.ModelResource):

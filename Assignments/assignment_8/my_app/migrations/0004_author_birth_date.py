@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('foreign_key_assignment', '0003_alter_author_options'),
+        ('my_app', '0003_alter_author_options'),
     ]
 
     operations = [

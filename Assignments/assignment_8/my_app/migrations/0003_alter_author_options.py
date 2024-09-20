@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('foreign_key_assignment', '0002_student_course'),
+        ('my_app', '0002_student_course'),
     ]
 
     operations = [
