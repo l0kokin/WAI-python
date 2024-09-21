@@ -11,7 +11,7 @@ def create_book(request):
         form = BookForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('Succcess')
+            return HttpResponse('Success')
         else:
             form = BookForm()
             return render(request, 'books/books_create.html', {'form': form})
@@ -20,3 +20,8 @@ def create_book(request):
 def list_books(request):
     books = Book.objects.all()
     return render(request, 'books/books_list.html', {'books': books})
+
+
+def detail_book(request, pk):
+    book = Book.objects.get(pk=pk)
+    return render(request, )
