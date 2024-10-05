@@ -23,19 +23,17 @@ def authors_list(request):
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def author_detail(request, pk):
+    author = get_object_or_404(Author, pk=pk)
     if request.method == 'GET':
-        author = get_object_or_404(Author, pk=pk)
         serializer = AuthorSerializer(author)
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        author = get_object_or_404(Author, pk=pk)
         serializer = AuthorSerializer(author, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
 
     elif request.method == 'DELETE':
-        author = get_object_or_404(Author, pk=pk)
         author.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
